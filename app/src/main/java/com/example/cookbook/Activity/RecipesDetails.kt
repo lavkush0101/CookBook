@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cookbook.R
@@ -21,6 +22,11 @@ class RecipesDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipes_d_etails)
         supportActionBar?.hide()
+        val recipeName:String= intent.getStringExtra("recipeName").toString()
+
+        Toast.makeText(applicationContext,"done"+recipeName,Toast.LENGTH_LONG).show()
+//            val string: String? = intent.getString("keyString")
+
         comment_recylerview=findViewById(R.id.comment_recylerview)
         input_comment=findViewById(R.id.comment_input)
 
@@ -32,9 +38,8 @@ class RecipesDetails : AppCompatActivity() {
     private fun initRecylerview() {
         comment_recylerview.apply {
             layoutManager=LinearLayoutManager(this@RecipesDetails)
-            list.add("Name")
-            list.add("lavk")
-            list.add("Name")
+            list.add("Testy")
+            list.add("Osm")
             commentAdapter= ComentAdapter(list)
             adapter=commentAdapter
         }
@@ -50,7 +55,4 @@ class RecipesDetails : AppCompatActivity() {
 
     }
 
-    fun addDishes_Details(view: View) {
-
-    }
 }

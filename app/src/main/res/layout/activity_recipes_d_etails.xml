@@ -69,6 +69,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/cookbook_img_1"
             />
 
@@ -78,6 +79,7 @@
         android:layout_height="100dp"
         android:layout_below="@+id/details_pic"
         android:layout_marginTop="10dp"
+        android:padding="12dp"
         android:id="@+id/card_data"
         >
         <LinearLayout
@@ -105,7 +107,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="0:30 min"
+                        android:text="..."
                         android:textSize="16sp"
 
                         android:layout_weight="1.3"
@@ -169,7 +171,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="0dp"
+        app:cardCornerRadius="12dp"
         android:layout_below="@+id/card_data"
         android:id="@+id/comment_box"
         >

@@ -27,7 +27,7 @@ class DishesAdapter(var items: List<DishesModal>): RecyclerView.Adapter<DishesAd
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, RecipesDetails::class.java)
             //listener?.onClick(AlbumsData)
-            intent.putExtra("dd", "ff")
+            intent.putExtra("recipeName", items.get(position).name)
             holder.itemView.context.startActivity(intent)
         }
 

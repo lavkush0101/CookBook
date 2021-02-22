@@ -35,8 +35,8 @@ class Recipes : AppCompatActivity() {
         setContentView(R.layout.activity_recipes)
         mRecylerviewRecpeise =findViewById(R.id.recylerview_recipes);
         search_input =findViewById(R.id.search_input);
-        addDeatails_Relative =findViewById(R.id.addDeatailsRelative);
-        readRecipeFirebaseList();
+        addDeatails_Relative =findViewById(R.id.addDeatailsRelative)
+        readRecipeFirebaseList("");
 
         search_input.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -49,8 +49,13 @@ class Recipes : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {
                 var inputSearchDishes: String = search_input.text.toString().trim()
-//                if(dishModalList.get(0).filter { it.name.contains("n") }.toString())
-//                if (dishModalList.containsAll(filter))
+
+                if(inputSearchDishes.length>=2) {
+                    readRecipeFirebaseList(inputSearchDishes);
+                }else{
+                    Log.d("searchInputField","Minmum threen character")
+                }
+
 
             }
 
@@ -134,28 +139,32 @@ class Recipes : AppCompatActivity() {
 //  Read the recipe list
 
 
-    private fun readRecipeFirebaseList(){
+    private fun readRecipeFirebaseList(search:String){
       val ref=FirebaseDatabase.getInstance().getReference("recipeList")
 
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if(dataSnapshot!=null) {
+                    list.clear()
                     for (h in dataSnapshot.children){
                         val  dishes:DishesModal?=h.getValue(DishesModal::class.java)
                         Log.d("firebaseRespone",dishes?.name.toString());
-                        if (dishes != null) {
-                            list.add(dishes)
-                        }
-                        mRecylerviewRecpeise.apply {
-                            layoutManager=LinearLayoutManager(this@Recipes)
-                            dishesAdapter= DishesAdapter(list)
-                            adapter=dishesAdapter
-                        }
+                        if(search.isEmpty()){
+                            if (dishes != null) {
+                                list.add(dishes)
+                            }
+                        }else if(search.length>=2){
+                            if (dishes?.name?.contains(search) == true) {
+                                list.add(dishes)
+                            }
 
-
+                        }
                     }
-
-//                    Log.d("firebaseRespone",dataSnapshot.children.toString());
+                    mRecylerviewRecpeise.apply {
+                        layoutManager=LinearLayoutManager(this@Recipes)
+                        dishesAdapter= DishesAdapter(list)
+                        adapter=dishesAdapter
+                    }
                 }
 
             }
@@ -171,6 +180,6 @@ class Recipes : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        readRecipeFirebaseList();
+        readRecipeFirebaseList("");
     }
 }
