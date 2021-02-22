@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginStart="11dp"
+    android:layout_marginEnd="11dp"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Recipes">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:backgroundTint="@color/purple_500"
+        android:id="@+id/appBar"
+        >
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:id="@+id/back"
+            android:padding="12dp"
+            android:onClick="onBackRecipes"
+            android:src="@drawable/back_32"
+            />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="60dp"
+            app:cardCornerRadius="12dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/add"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            >
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:id="@+id/search_input"
+                android:drawablePadding="6dp"
+                android:hint="e.g panner "
+                android:drawableStart="@drawable/ic_baseline_search_24"
+                />
+
+        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_baseline_add_24"
+            android:onClick="addDishes"
+            android:id="@+id/add"
+            android:background="@color/purple_500"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBar"
+        android:id="@+id/top_header"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            android:layout_marginTop="12dp"
+            android:id="@+id/dishes_image"
+            android:src="@drawable/ic_launcher_background"
+            />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_header"
+        android:id="@+id/recylerview_recipes"
+        tools:listitem="@layout/activity_list_item"
+        />
+
+
+<!--    add new Recipes Data rows -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBar"
+        android:background="@color/white"
+        android:visibility="invisible"
+        android:id="@+id/addDeatailsRelative"
+        >
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="12dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_View"
+                    android:text="Add Recipes"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/purple_500"
+                    android:padding="7dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:text="Recipe Name"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Recipe Name"
+                        android:id="@+id/recipe_name"
+                        android:backgroundTint="@android:color/transparent"
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:text="Recipe Type"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint=" enter the type"
+                        android:id="@+id/recipes_type"
+                        android:backgroundTint="@android:color/transparent"
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:text="Recipe Image"
+                        />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="start"
+                        android:id="@+id/recipe_image_upload"
+                        android:src="@drawable/ic_launcher_background"
+                        />
+
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Submit"
+                    android:gravity="center"
+                    android:id="@+id/submit_data"
+                    />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
