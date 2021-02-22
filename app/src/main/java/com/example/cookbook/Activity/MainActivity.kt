@@ -18,13 +18,13 @@ import com.google.firebase.ktx.Firebase
 
 @Suppress("UNREACHABLE_CODE")
 class MainActivity : AppCompatActivity() ,View.OnClickListener {
-    lateinit var americanCardview: RelativeLayout
-    lateinit var indianCard: RelativeLayout
-    lateinit var englishCard: RelativeLayout
-    lateinit var chinessCard: RelativeLayout
-    lateinit var italinCard: RelativeLayout
-    lateinit var asianCard: RelativeLayout
-    lateinit var selectCuisines: Button
+    private lateinit var americanCardview: RelativeLayout
+    private lateinit var indianCard: RelativeLayout
+    private lateinit var englishCard: RelativeLayout
+    private lateinit var chinessCard: RelativeLayout
+    private lateinit var italinCard: RelativeLayout
+    private lateinit var asianCard: RelativeLayout
+    private lateinit var selectCuisines: Button
 
     var amrican_click_value = 0
     var indian_click_value = 0

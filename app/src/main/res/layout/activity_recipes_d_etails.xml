@@ -99,7 +99,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Recipe Name "
+                        android:text="Recipe Name :  "
                         android:textSize="18sp"
                         android:gravity="left"
                         android:layout_weight=".7"
@@ -125,7 +125,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Prep Time     : "
+                        android:text="Prep Time      : "
                         android:textSize="18sp"
                         android:gravity="left"
                         android:layout_weight=".7"
@@ -181,7 +181,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
         <EditText
@@ -189,8 +189,10 @@
             android:layout_height="match_parent"
             android:hint="  Enter the comment.... "
             android:id="@+id/comment_input"
+            android:padding="12dp"
             android:background="@drawable/input_bg"
             android:maxLines="5"
+            android:textSize="14sp"
             android:layout_weight=".2"
             />
         <ImageView
