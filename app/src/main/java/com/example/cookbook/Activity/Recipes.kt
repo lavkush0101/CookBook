@@ -27,6 +27,7 @@ class Recipes : AppCompatActivity() {
     private lateinit var recipeImageUpload:ImageView
     private lateinit var addDeatails_Relative:RelativeLayout
     private lateinit var database: DatabaseReference
+    private var list = arrayListOf<DishesModal>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,12 +59,7 @@ class Recipes : AppCompatActivity() {
         initRecyclerView();
     }
     private fun initRecyclerView(){
-        mRecylerviewRecpeise.apply {
-            layoutManager=LinearLayoutManager(this@Recipes)
-            dishesAdapter= DishesAdapter(list)
-            adapter=dishesAdapter
-        }
-     }
+            }
     /*
     add the dishes of Android
      */
@@ -137,7 +133,6 @@ class Recipes : AppCompatActivity() {
 
 //  Read the recipe list
 
-    val list = arrayListOf<DishesModal>()
 
     private fun readRecipeFirebaseList(){
       val ref=FirebaseDatabase.getInstance().getReference("recipeList")
@@ -151,6 +146,12 @@ class Recipes : AppCompatActivity() {
                         if (dishes != null) {
                             list.add(dishes)
                         }
+                        mRecylerviewRecpeise.apply {
+                            layoutManager=LinearLayoutManager(this@Recipes)
+                            dishesAdapter= DishesAdapter(list)
+                            adapter=dishesAdapter
+                        }
+
 
                     }
 
@@ -166,5 +167,10 @@ class Recipes : AppCompatActivity() {
         }
     ref.addValueEventListener(postListener)
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        readRecipeFirebaseList();
     }
 }
