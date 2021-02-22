@@ -11,6 +11,7 @@ import com.example.cookbook.R
 import com.example.cookbook.modal.CuisineModal
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -174,5 +175,10 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener {
 
        val intent = Intent(this, Recipes::class.java)
         startActivity(intent)
+    }
+
+    fun Logout(view: View) {
+
+//        Firebase.auth.signOut()
     }
 }

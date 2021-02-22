@@ -22,6 +22,7 @@
             android:id="@+id/back"
             android:padding="12dp"
             android:onClick="onBackRecipes"
+            android:tint="@color/purple_500"
             android:src="@drawable/back_32"
             />
         <androidx.cardview.widget.CardView
@@ -40,6 +41,7 @@
                 android:backgroundTint="@android:color/transparent"
                 android:id="@+id/search_input"
                 android:drawablePadding="6dp"
+                android:drawableTint="@color/purple_500"
                 android:hint="e.g panner "
                 android:drawableStart="@drawable/ic_baseline_search_24"
                 />

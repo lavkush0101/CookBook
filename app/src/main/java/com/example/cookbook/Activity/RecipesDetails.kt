@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@ class RecipesDetails : AppCompatActivity() {
 
     private lateinit var comment_recylerview:RecyclerView
     private lateinit var input_comment:EditText
+    private lateinit var recipe_name: TextView
     private lateinit var commentAdapter: ComentAdapter
 
     val list: ArrayList<String> = ArrayList()
@@ -24,11 +26,10 @@ class RecipesDetails : AppCompatActivity() {
         supportActionBar?.hide()
         val recipeName:String= intent.getStringExtra("recipeName").toString()
 
-        Toast.makeText(applicationContext,"done"+recipeName,Toast.LENGTH_LONG).show()
-//            val string: String? = intent.getString("keyString")
-
         comment_recylerview=findViewById(R.id.comment_recylerview)
         input_comment=findViewById(R.id.comment_input)
+        recipe_name=findViewById(R.id.recipe_name)
+        recipe_name.setText(recipeName)
 
         initRecylerview()
 
