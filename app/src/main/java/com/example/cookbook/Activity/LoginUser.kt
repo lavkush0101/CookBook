@@ -78,4 +78,6 @@ class LoginUser : AppCompatActivity() {
         startActivity(intent)
 
     }
+    //keytool -exportcert -alias YOUR_RELEASE_KEY_ALIAS -keystore "C:\Users\Luvkush\.android\debug.keystore"| "C:\openssl-0.9.8k_X64\bin\openssl" sha1 -binary | "C:\openssl-0.9.8k_X64\bin\openssl" base64
+    
 }
